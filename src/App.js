@@ -11,10 +11,23 @@ function App() {
    variant='h4' 
    component='h1'
    align='center'>Cadastre-se</Typography>
-   <RegistrationForm/>
+   <RegistrationForm onSubmit={onSubmitForm} validateEmail={validateEmail}/>
    </Container>
 
   );
+}
+
+function onSubmitForm(data) {
+  console.log(data);
+}
+
+function validateEmail(email){
+
+  if (!email.includes('@')){
+    return {valido:false, text:'Insira email válido'} 
+  } else {
+    return {valido:true, text:''} 
+  }
 }
 
 export default App;
